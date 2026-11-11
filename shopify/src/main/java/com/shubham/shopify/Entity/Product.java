@@ -1,19 +1,24 @@
 package com.shubham.shopify.Entity;
 
+
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity 
 public class Product {
     @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long id;
     private String product_name;
-    private LocalDateTime createdtime;
-    private LocalDateTime updatedtime; 
+    private LocalDateTime created_time;
+    private LocalDateTime updated_time; 
     private int price;
-    private String category;    
+    private String category;
+    private String description;    
 
     public Long getId() {
         return id;
@@ -31,20 +36,20 @@ public class Product {
         this.product_name = product_name;
     }
 
-    public LocalDateTime getCreatedtime() {
-        return createdtime;
+    public LocalDateTime getCreated_time() {
+        return created_time;
     }
 
-    public void setCreatedtime(LocalDateTime createdtime) {
-        this.createdtime = createdtime;
+    public void setCreated_time(LocalDateTime created_time) {
+        this.created_time = created_time;
     }
 
-    public LocalDateTime getUpdatedtime() {
-        return updatedtime;
+    public LocalDateTime getUpdated_time() {
+        return updated_time;
     }
 
-    public void setUpdatedtime(LocalDateTime updatedtime) {
-        this.updatedtime = updatedtime;
+    public void setUpdated_time(LocalDateTime updated_time) {
+        this.updated_time = updated_time;
     }
 
     public int getPrice() {
@@ -61,5 +66,13 @@ public class Product {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
